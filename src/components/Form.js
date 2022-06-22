@@ -6,7 +6,7 @@ import ExpenseAmount from "./ExpenseAmount";
 
 export default function Form(props) {
   return (
-    <form className="container m-4 form-group row">
+    <form className="container m-auto">
       <div className="row">
         <ExpenseType
           name="type"

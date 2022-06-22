@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ExpenseType(props) {
   return (
-    <div className="col me-5">
+    <div className="col me-auto">
       <label htmlFor="payment-type">Type:</label>
 
       <select

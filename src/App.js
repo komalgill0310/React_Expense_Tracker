@@ -34,12 +34,7 @@ export default function App() {
   function addDataToTable(event) {
     event.preventDefault();
 
-    if (
-      formData.type === "" ||
-      formData.data === "" ||
-      formData.description === "" ||
-      formData.amount === ""
-    ) {
+    if (isInputValueEmpty(formData)) {
       alert("Plese fill out the required fields");
     } else {
       const tableCellData = {
@@ -50,13 +45,24 @@ export default function App() {
         expenseAmount: formData.amount,
       };
       setTableData([...tableData, tableCellData]);
-      setFormData({
-        type: "",
-        date: "",
-        description: "",
-        amount: "",
-      });
+      clearFormValue();
     }
+  }
+
+  function isInputValueEmpty(formData) {
+    const { type, data, description, amount } = formData;
+    return type === "" || data === "" || description === "" || amount === ""
+      ? true
+      : false;
+  }
+
+  function clearFormValue() {
+    setFormData({
+      type: "",
+      date: "",
+      description: "",
+      amount: "",
+    });
   }
 
   function deleteExpense(event, deleteId) {
@@ -84,7 +90,7 @@ export default function App() {
     <>
       <Header />
       <Form value={formData} handleChange={handleChange} />
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center m-4">
         <button
           type="submit"
           onClick={addDataToTable}

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ExpenseName(props) {
   return (
-    <div className="col mt-4">
+    <div className="col mt-auto">
       <label htmlFor="expense-name">Name: </label>
         <input
           id="expense-name"
