@@ -1,15 +1,16 @@
 import React from "react";
 
-export default function DeleteExpense(props) {
+export default function DeleteExpense({ handleClick, deleteId }) {
   const iconStyle = {
     color: "red",
-    cursor: "pointer"
-  }
-  
-  return (
+    cursor: "pointer",
+  };
 
-    // <button className="border-0" onClick={(event) => props.handleClick(event, props.deleteId)}>
-     <i  style={iconStyle} className="bi-trash"  onClick={(event) => props.handleClick(event, props.deleteId)}></i>
-    // </button>
+  return (
+    <i
+      style={iconStyle}
+      className="bi-trash"
+      onClick={(event) => handleClick(event, deleteId)}
+    ></i>
   );
 }
