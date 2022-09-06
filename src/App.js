@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
 import Header from "./modules/Header";
 import Form from "./modules/InputForm/Form";
 import ExpenseTable from "./modules/ExpenseTable";
 
 export default function App() {
-  const [formData, setFormData] = useState({
-    id: nanoid(),
-    type: "",
-    date: "",
-    description: "",
-    amount: "",
-  });
-
   const [tableData, setTableData] = useState(
     () => JSON.parse(localStorage.getItem("tableData")) || []
   );
@@ -20,50 +11,6 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("tableData", JSON.stringify(tableData));
   }, [tableData]);
-
-  function handleChange(event) {
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        id: nanoid(),
-        [event.target.name]: event.target.value,
-      };
-    });
-  }
-
-  function addDataToTable(event) {
-    event.preventDefault();
-
-    if (isInputValueEmpty(formData)) {
-      alert("Plese fill out the required fields");
-    } else {
-      const tableCellData = {
-        rowId: formData.id,
-        expenseType: formData.type,
-        expenseDate: formData.date,
-        expenseName: formData.description,
-        expenseAmount: formData.amount,
-      };
-      setTableData([...tableData, tableCellData]);
-      clearFormValue();
-    }
-  }
-
-  function isInputValueEmpty(formData) {
-    const { type, data, description, amount } = formData;
-    return type === "" || data === "" || description === "" || amount === ""
-      ? true
-      : false;
-  }
-
-  function clearFormValue() {
-    setFormData({
-      type: "",
-      date: "",
-      description: "",
-      amount: "",
-    });
-  }
 
   function deleteExpense(event, deleteId) {
     event.preventDefault();
@@ -76,7 +23,7 @@ export default function App() {
   const tableElements = tableData.map((eachTableData) => {
     return (
       <ExpenseTable
-        key={nanoid()}
+        key={eachTableData.rowId}
         id={eachTableData.rowId}
         expenseType={eachTableData.expenseType}
         expenseDate={eachTableData.expenseDate}
@@ -89,16 +36,8 @@ export default function App() {
   return (
     <>
       <Header />
-      <Form value={formData} handleChange={handleChange} />
-      <div className="d-flex justify-content-center align-items-center m-4">
-        <button
-          type="submit"
-          onClick={addDataToTable}
-          className="btn btn-primary btn-sm active border-0"
-        >
-          Add a new Expense
-        </button>
-      </div>
+      <Form setTableData={setTableData} />
+
       <div className="table-responsive-sm">
         <table className="table table-bordered table-dark table-hover table-sm mt-4">
           <thead className="thead-dark">
