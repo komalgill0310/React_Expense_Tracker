@@ -1,15 +1,15 @@
 import React from "react";
 
-export default function ExpenseType(props) {
+export default function ExpenseType({name, changeValue, value}) {
   return (
     <div className="col me-auto">
       <label htmlFor="payment-type">Type:</label>
 
       <select
         id="payment-type"
-        name={props.name}
-        onChange={props.changeValue}
-        value={props.value}
+        name={name}
+        onChange={changeValue}
+        value={value}
         className="form-select form-select-sm"
         required
       >

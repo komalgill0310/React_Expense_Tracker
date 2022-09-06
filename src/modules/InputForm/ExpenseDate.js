@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ExpenseDate(props) {
+export default function ExpenseDate({name, changeValue, value}) {
   return (
     <div className="col order-last">
       <label htmlFor="date">Date: </label>
@@ -8,9 +8,9 @@ export default function ExpenseDate(props) {
       <input
         id="date"
         type="date"
-        name={props.name}
-        onChange={props.changeValue}
-        value={props.value}
+        name={name}
+        onChange={changeValue}
+        value={value}
         className="form-control form-select-sm"
         required
       />

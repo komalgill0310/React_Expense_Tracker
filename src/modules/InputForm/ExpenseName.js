@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ExpenseName(props) {
+export default function ExpenseName({name, changeValue, value}) {
   return (
     <div className="col mt-auto">
       <label htmlFor="expense-name">Name: </label>
@@ -8,9 +8,9 @@ export default function ExpenseName(props) {
           id="expense-name"
           type="text"
           placeholder="What did you spend on?"
-          name={props.name}
-          onChange={props.changeValue}
-          value={props.value}
+          name={name}
+          onChange={changeValue}
+          value={value}
           className="form-control form-select-sm"
           required
         />
