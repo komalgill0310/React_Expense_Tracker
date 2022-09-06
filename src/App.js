@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import Header from "./components/Header";
-import Form from "./components/Form";
-import ExpenseTable from "./components/ExpenseTable";
+import Header from "./modules/Header";
+import Form from "./modules/InputForm/Form";
+import ExpenseTable from "./modules/ExpenseTable";
 
 export default function App() {
   const [formData, setFormData] = useState({
