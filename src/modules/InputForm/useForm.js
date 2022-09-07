@@ -41,7 +41,7 @@ export default function useForm(setTableData) {
       alert("Plese fill out the required fields");
     } else {
       const tableCellData = {
-        rowId: formData.id,
+        id: formData.id,
         expenseType: formData.type,
         expenseDate: formData.date,
         expenseName: formData.description,

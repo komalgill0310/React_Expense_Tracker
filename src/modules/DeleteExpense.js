@@ -10,7 +10,7 @@ export default function DeleteExpense({ handleClick, deleteId }) {
     <i
       style={iconStyle}
       className="bi-trash"
-      onClick={(event) => handleClick(event, deleteId)}
+      onClick={() => handleClick(deleteId)}
     ></i>
   );
 }
