@@ -21,4 +21,4 @@
   * onClick EventListener
 
 # Author
-<font size=5>Komal - | Software Developer | [Expense Tracker App](https://expense-tracker-react-1.herokuapp.com/) | [LinkedIn](https://www.linkedin.com/in/komalpreet-kaur-3b6924177/)
+Komal | Software Developer | [Portfolio](https://kaurkomal.com/) | [LinkedIn](https://www.linkedin.com/in/hssa03/)
